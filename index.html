@@ -1,65 +1,47 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SberCRM Webhook Test</title>
-    <style>
-        body { font-family: Arial, sans-serif; max-width: 400px; margin: 50px auto; padding: 20px; }
-        button { background: #007bff; color: white; border: none; padding: 12px 24px; font-size: 16px; cursor: pointer; border-radius: 4px; }
-        button:hover { background: #0056b3; }
-        button:disabled { background: #6c757d; cursor: not-allowed; }
-        #status { margin-top: 20px; padding: 10px; border-radius: 4px; }
-        .success { background: #d4edda; color: #155724; }
-        .error { background: #f8d7da; color: #721c24; }
-    </style>
-</head>
+<html lang="ru"><head>
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<meta http-equiv="Content-Type" content="text/html" ;="" charset="utf-8">
+	<meta name="description" content="Полис «Личный приоритет» — защита жизни и здоровья с медицинским обслуживанием премиального уровня.">
+	<meta name="yandex-verification" content="6f2febc9c6f2e5b2">
+	<meta property="og:title" content="Накопительное страхование жизни с медицинским покрытием | Сбербанк Страхование Жизни">
+	<meta property="og:url" content="https://sberbank-insurance.ru/policy/lichnyprioritet">
+	<meta property="og:description" content="Полис «Личный приоритет» — защита жизни и здоровья с медицинским обслуживанием премиального уровня.">
+	<meta property="og:image" content="/favicon.ico">
+	<meta property="og:site_name" content="Сбербанк Страхование Жизни">
+	<meta property="og:locale" content="ru_RU">
+	<meta property="og:type" content="website">
+	<title>Автобус здоровья | Сбербанк Страхование Жизни</title>
+	<style>
+		.ns-product-banner__block {
+			background: rgba(255, 255, 255, 0.30) url('../newFront/dist/assets/img/pages/lp-banner-bg.png') bottom right no-repeat !important;
+			background-size: contain !important;
+		}
+		@media screen and (max-width: 1279px) {
+			.ns-product-banner__block {
+				background-size: 670px !important;
+			}
+		}
+		@media screen and (max-width: 1024px) {
+			.ns-product-banner__block {
+				background: rgba(255, 255, 255, 0.30) url('../newFront/dist/assets/img/pages/lp-banner-mobbg.png') center right no-repeat !important;
+				background-size: contain !important;
+			}
+		}
+	</style>
+	<link href="/newFront/dist/css/main.css" rel="stylesheet">
+<link href="/newFront/dist/css/global.css" rel="stylesheet">
+<link href="/newFront/dist/css/mainLayout.css" rel="stylesheet">
+<link href="/newFront/dist/css/lichnyPrioritet.css" rel="stylesheet">
+<link href="/formula_zhizni_files/dist/css/global.css" rel="stylesheet">
+<link href="/formula_zhizni_files/dist/css/main.css" rel="stylesheet"></head>
+
 <body>
-    <h1>Trigger SberCRM Webhook</h1>
-    <p>Click the button to POST this data: <code>{"name":"abcdef","rejting_dzo$c":100500,"telefon$c":"+79999999999","id":"abcdef"}</code></p>
-    <button id="triggerBtn">Send POST Request</button>
-    <div id="status"></div>
+    <script src="https://app-psi.sbercrm.com/form-builder-web/downloader.bundle.js?v=1770217546791"></script>
+    <script>new SberCrmFormBuilder.D("d91d479a-2eee-11ef-91f2-f71642fe7a48", "https://app-psi.sbercrm.com/form-builder-web")</script>
 
-    <script>
-        const endpoint = 'https://app-psi.sbercrm.com/react-gateway/api/webhook/4ea89d4b-cef9-4158-add7-47eb249c947e';
-        const data = {
-            "name": "abcdef",
-            "rejting_dzo$c": 100500,
-            "telefon$c": "+79999999999"
-        };
-        const btn = document.getElementById('triggerBtn');
-        const statusDiv = document.getElementById('status');
 
-        btn.addEventListener('click', async () => {
-            btn.disabled = true;
-            btn.textContent = 'Sending...';
-            statusDiv.textContent = '';
-            statusDiv.className = '';
 
-            try {
-                const response = await fetch(endpoint, {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify(data)
-                });
 
-                if (response.ok) {
-                    statusDiv.textContent = `Success! Status: ${response.status}. Response: ${await response.text()}`;
-                    statusDiv.className = 'success';
-                } else {
-                    throw new Error(`HTTP ${response.status}: ${await response.text()}`);
-                }
-            } catch (error) {
-                statusDiv.textContent = `Error: ${error.message}`;
-                statusDiv.className = 'error';
-                console.error('Full error:', error);
-            } finally {
-                btn.disabled = false;
-                btn.textContent = 'Send POST Request';
-            }
-        });
-    </script>
-</body>
-</html>
+</body></html>
